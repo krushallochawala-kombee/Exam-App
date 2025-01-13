@@ -3,13 +3,13 @@ import axios from 'axios';
 const API_KEY = 'LZp6RHba4NynNs6NsjgrLLkWBPklQQAYtn9j5NUg';
 const API_URL = 'https://api.cohere.ai/generate';
 
-export const generateQuestion = async (topic) => {
+export const generateQuestion = async (topic, difficulty) => {
     try {
       const response = await axios.post(
         API_URL,
         {
           model: 'command-r-plus', 
-          prompt: `Generate a random multiple-choice question on ${topic}.`,
+          prompt: `Generate a random multiple-choice question on ${topic} with a difficulty level of ${difficulty}.`,
           max_tokens: 100,
         },
         {
